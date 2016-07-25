@@ -17,32 +17,28 @@ function init() {
     var outputPath = program.output;
     var removePath = program.remove;
     var GMI = new GM();
-    if (!copyPath || !removePath) {
+    if (copyPath) {
+        if (outputPath) {
+            try{
+                GMI.copySync(copyPath, outputPath);
+                console.log('copy file from ', path.resolve(copyPath), ' to ', path.resolve(outputPath));
+            } catch(e) {
+                console.log(chalk.red.bold('[copySync ERROR]: '+ e.message));
+            }
+        } else {
+            console.log(chalk.yellow.bold('[miss param output]'));
+        }
+        return; 
+    } else if (removePath) {
+        try{
+            GMI.removeSync(removePath);
+            console.log('remove file from ', path.resolve(copyPath));
+        } catch(e) {
+            console.log(chalk.red.bold('[removeSync ERROR]: '+ e.message));
+        }
+        return;
+    } else {
         console.log(chalk.blue.bold('[version]: ') + pkg.version);
         program.help();
-    } else {
-        if (copyPath) {
-            if (outputPath) {
-                try{
-                    GMI.copySync(copyPath, outputPath);
-                    console.log('copy file from ', path.resolve(copyPath), ' to ', path.resolve(outputPath));
-                } catch(e) {
-                    console.log(chalk.red.bold('[copySync ERROR]: '+ e.message));
-                }
-                return;
-            } else {
-                console.log(chalk.yellow.bold('[miss param output]'));
-                return; 
-            }
-        }
-        if (removePath) {
-            try{
-                GMI.removeSync(removePath);
-                console.log('remove file from ', path.resolve(copyPath));
-            } catch(e) {
-                console.log(chalk.red.bold('[removeSync ERROR]: '+ e.message));
-            }
-            return;''
-        }
     }
 }
