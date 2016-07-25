@@ -9,6 +9,7 @@ program.version(pkg.version)
     .option('-c, --copy [path]', 'copy file sync')
     .option('-o, --output [path]', 'output file path')
     .option('-r, --remove [path]', 'remove file sync')
+    .parse(process.argv);
 if (!program.args.length) {
   console.log(chalk.blue.bold('[version]: ') + pkg.version);
   return false;
