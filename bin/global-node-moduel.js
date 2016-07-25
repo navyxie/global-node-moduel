@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+
 var program = require('commander');
 var pkg = require('../package.json');
-var GM = require('../global-node-moduel');
+var GM = require('../index');
 var chalk = require('chalk');
 var path = require('path');
 program.version(pkg.version)
@@ -10,7 +11,7 @@ program.version(pkg.version)
     .option('-r, --remove [path]', 'remove file sync')
 if (!program.args.length) {
   console.log(chalk.blue.bold('[version]: ') + pkg.version);
-  return;
+  return false;
 }
 var GMI = new GM();
 program.args.forEach(function () {
