@@ -32,7 +32,7 @@ function init() {
     } else if (removePath) {
         try{
             GMI.removeSync(removePath);
-            console.log('remove file from ', path.resolve(copyPath));
+            console.log('remove file from ', path.resolve(removePath));
         } catch(e) {
             console.log(chalk.red.bold('[removeSync ERROR]: '+ e.message));
         }
