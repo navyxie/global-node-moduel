@@ -21,7 +21,7 @@ function init() {
         if (outputPath) {
             try{
                 GMI.copySync(copyPath, outputPath);
-                console.log('copy file from ', path.resolve(copyPath), ' to ', path.resolve(outputPath));
+                console.log(chalk.green.bold('copy file from ', path.resolve(copyPath), ' to ', path.resolve(outputPath)));
             } catch(e) {
                 console.log(chalk.red.bold('[copySync ERROR]: '+ e.message));
             }
@@ -32,7 +32,7 @@ function init() {
     } else if (removePath) {
         try{
             GMI.removeSync(removePath);
-            console.log('remove file from ', path.resolve(removePath));
+            console.log(chalk.green.bold('remove file from ', path.resolve(removePath)));
         } catch(e) {
             console.log(chalk.red.bold('[removeSync ERROR]: '+ e.message));
         }
