@@ -90,7 +90,7 @@ function init() {
   ```
   安装完成后会在当前`node_modules`目录下有一个`.bin`目录，`.bin`目录下有一个文件是`global-node-moduel`。看下图：
 
-  ![局部安装](https://mmbiz.qlogo.cn/mmbiz/E7ia3F4UicMx8QgHdLBKeW47R1hEb2hlMssk45iaWj4jeqw7B5icJjKeKicf0KYvibm7z5hwCiab9RreibWicJ3TwXAfxicA/0?wx_fmt=png)
+  ![局部安装](./images/local-install.png)
 
 - 全局安装
 
@@ -99,7 +99,7 @@ function init() {
   ```
   安装完成后，我们可以通过`which global-node-moduel`命令查看安装的位置，假如是`/usr/local/bin/global-node-moduel`，然后再通过命令`ls -l /usr/local/bin/global-node-moduel` 查看可执行命令文件的真实位置：`lrwxr-xr-x  1 root  admin  64  7 26 01:21 /usr/local/bin/global-node-moduel -> ../lib/node_modules/global-node-moduel/bin/global-node-moduel.js` ，也就是后面的 `../lib/node_modules/global-node-moduel/bin/global-node-moduel.js`。由此看看出，全局安装的模块会在`/usr/local/bin/`目录（不同系统目录可能不一样，但原理是一样的）下创建一个软件，链接到`bin`的同层目录`lib/node_modules/global-node-moduel/bin/global-node-moduel.js`，也就是说实际上全局安装的模块是位于目录`/usr/local/lib/node_modules/`下（不同系统目录可能不一样）。看下图：
 
-  ![全局安装](https://mmbiz.qlogo.cn/mmbiz/E7ia3F4UicMx8QgHdLBKeW47R1hEb2hlMsBNfXudMzlPy8FSECEwjvDXTqPv8ZCpEArWy3939cE7loiaErc3ExgJg/0?wx_fmt=png)
+  ![全局安装](./images/global-install.png)
 
 <a name="package" />
 
